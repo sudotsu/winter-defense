@@ -1,4 +1,5 @@
 import React from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import Credibility from './components/Credibility';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
@@ -46,6 +47,7 @@ const App = () => {
       <HowItWorks />
       <SocialProof />
       <Footer />
+      <Analytics />
     </div>
   );
 };
