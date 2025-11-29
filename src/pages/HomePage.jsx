@@ -26,20 +26,6 @@ const HomePage = () => {
         color: colors.text
       }}
     >
-      {/* Google Fonts */}
-      <style>
-        {`
-          @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
-
-          body, p, li, a, button {
-            font-family: 'Inter', sans-serif;
-          }
-          h1, h2, h3, h4, h5, h6 {
-            font-family: 'Inter', sans-serif;
-          }
-        `}
-      </style>
-
       <Navigation scrolled={scrolled} />
       <Hero />
       <Credibility />
