@@ -1,5 +1,6 @@
 import React from 'react';
 import { Analytics } from '@vercel/analytics/react';
+import { SpeedInsights } from '@vercel/speed-insights/react';
 import Credibility from './components/Credibility';
 import Footer from './components/Footer';
 import Hero from './components/Hero';
@@ -48,6 +49,7 @@ const App = () => {
       <SocialProof />
       <Footer />
       <Analytics />
+      <SpeedInsights />
     </div>
   );
 };
