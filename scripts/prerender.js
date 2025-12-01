@@ -123,7 +123,7 @@ const prerenderToolsPage = () => {
   let html = fs.readFileSync(toolsPath, 'utf-8');
 
   // SEO meta tags to inject
-  const seoTags = `<meta charset=UTF-8>
+  const seoTags = `<meta charset="UTF-8">
 <title>Tree Diagnostic Tool - Free Risk Assessment | Omaha Tree Care</title>
 <meta name="description" content="Free interactive tree risk assessment tool for Omaha homeowners. Analyze tree health, get cost estimates, identify hazards. Based on ISA arborist standards. EAB detection, disease diagnosis, structural analysis.">
 <meta name="keywords" content="tree risk assessment, Omaha tree diagnostic, tree health checker, EAB detection tool, tree hazard assessment, tree cost estimator, Omaha arborist tool, tree disease identifier">

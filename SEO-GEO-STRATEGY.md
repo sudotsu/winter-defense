@@ -23,7 +23,7 @@
 
 ### Technical SEO ✅
 
-- **Sitemap:** `/public/sitemap.xml` - submitted to Google Search Console
+- **Sitemap:** `/public/sitemap.xml` - created and ready for Google Search Console submission
   - Homepage: `https://omahatreecare.com/` (priority 1.0, weekly updates)
   - Tools page: `https://omahatreecare.com/tools` (priority 0.9, weekly updates)
   - Last modified: 2025-11-30
