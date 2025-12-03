@@ -6,8 +6,12 @@ import ContactForm from '../components/ContactForm'
 import neighborhoodData from '../data/neighborhoodData.json'
 
 /**
- * Universal template for all neighborhood pages
- * Generates unique SEO metadata and content based on URL params
+ * Render a neighborhood-specific location page with SEO metadata, structured data, CTAs, and a contact form.
+ *
+ * Uses URL parameters (city, neighborhood) to derive display names and select neighborhood-specific content;
+ * tracks page views and phone click events with `gtag` when available.
+ *
+ * @returns {JSX.Element} The rendered React component for the location page.
  */
 export default function LocationTemplate() {
   const { city, neighborhood } = useParams()
