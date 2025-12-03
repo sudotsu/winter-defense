@@ -1,5 +1,4 @@
 import { ViteReactSSG } from 'vite-react-ssg'
-import { HelmetProvider } from 'react-helmet-async'
 import { routes } from './routes'
 import './index.css'
 import { injectSpeedInsights } from '@vercel/speed-insights'
@@ -8,12 +7,8 @@ import { injectSpeedInsights } from '@vercel/speed-insights'
 export const createRoot = ViteReactSSG(
   { routes },
   ({ router, isClient, initialState }) => {
-    // Wrap with HelmetProvider for SEO metadata
-    return ({ children }) => (
-      <HelmetProvider context={initialState?.helmet || {}}>
-        {children}
-      </HelmetProvider>
-    )
+    // No wrapper needed - using vite-react-ssg's built-in Head component
+    return ({ children }) => children
   },
   () => {
     // Client-side only setup
