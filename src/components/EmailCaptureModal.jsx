@@ -1,6 +1,14 @@
 import { useState } from 'react'
 import { X, CheckCircle, Mail } from 'lucide-react'
 
+/**
+ * Renders an email capture modal that collects an email address, emits a tracking event when available, and shows a brief success state before closing.
+ *
+ * The component manages its own input, loading, and success states. On submit it will call `gtag('event', 'email_capture', ...)` if `window.gtag` exists, transition to a success view, and invoke `onClose` after the success timeout.
+ * @param {boolean} isOpen - Whether the modal is visible.
+ * @param {() => void} onClose - Callback invoked to close the modal.
+ * @returns {JSX.Element|null} The modal markup when open, or `null` when closed.
+ */
 export default function EmailCaptureModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)

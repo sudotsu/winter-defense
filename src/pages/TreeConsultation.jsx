@@ -3,6 +3,13 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { Phone, AlertTriangle, CheckCircle, ArrowLeft, Shield } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 
+/**
+ * Render the Tree Consultation landing page with risk-aware messaging, phone and callback CTAs, educational sections, a contact form, and embedded JSON-LD structured data.
+ *
+ * Reads the `risk` query parameter to adjust the UI (badge and analytics metadata) and emits analytics events for page views and phone clicks when an analytics function is available.
+ *
+ * @returns {JSX.Element} The Tree Consultation page UI.
+ */
 export default function TreeConsultation() {
   const [searchParams] = useSearchParams()
   const riskLevel = searchParams.get('risk')

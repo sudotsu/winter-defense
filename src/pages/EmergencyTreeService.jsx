@@ -3,6 +3,15 @@ import { useSearchParams, Link } from 'react-router-dom'
 import { Phone, Clock, AlertTriangle, CheckCircle, ArrowLeft } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 
+/**
+ * Render the Emergency Tree Service page with CTAs, risk indicator, and a contact form.
+ *
+ * Reads the `risk` query parameter to conditionally display a high-risk badge, sets the
+ * document title for SEO, and emits `page_view` and `phone_click` analytics events via
+ * `gtag` when available.
+ *
+ * @returns {JSX.Element} The rendered Emergency Tree Service page component.
+ */
 export default function EmergencyTreeService() {
   const [searchParams] = useSearchParams()
   const riskLevel = searchParams.get('risk')

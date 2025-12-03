@@ -4,6 +4,12 @@ import { AlertTriangle, CheckCircle, XCircle, Info } from 'lucide-react'
 import EmailCaptureModal from '../../EmailCaptureModal'
 
 
+/**
+ * Render an interactive tree hazard assessment UI that guides users through a short questionnaire and presents a risk-based result with next-step actions.
+ *
+ * The component maintains internal state for the current question, a simple assessment (likelihood, consequence, and identified issues), and an email-capture modal. After the final question it computes a risk score and displays a summary including risk level, recommended action, identified issues, contextual guidance, and contextual next steps (emergency, consultation, or email capture) based on the score.
+ * @returns {JSX.Element} The rendered hazard assessment interface.
+ */
 export function HazardAssessment() {
   const navigate = useNavigate()
   const [step, setStep] = useState(0)

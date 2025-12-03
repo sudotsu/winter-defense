@@ -2,6 +2,13 @@ import emailjs from '@emailjs/browser'
 import { AlertCircle, CheckCircle, Send } from 'lucide-react'
 import { useState } from 'react'
 
+/**
+ * Render a contact form UI that collects user details, submits them via EmailJS, and displays success or error feedback while emitting analytics events.
+ *
+ * @param {string} [urgency='medium'] - Priority level for the inquiry; affects analytics value and displayed response timeframe. Use 'high' for urgent requests.
+ * @param {string} [pageSource='unknown'] - Identifier for the page or source used as the analytics event label.
+ * @returns {JSX.Element} The contact form component with inputs for name, email, phone, address, preferred callback time, and message; handles submission state and result UI.
+ */
 export default function ContactForm({ urgency = 'medium', pageSource = 'unknown' }) {
   const [formData, setFormData] = useState({
     name: '',
