@@ -1,7 +1,7 @@
+import { ArrowLeft, CheckCircle, Leaf, MapPin, Phone, TreeDeciduous } from 'lucide-react'
 import { useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Head } from 'vite-react-ssg'
-import { Phone, MapPin, CheckCircle, ArrowLeft, TreeDeciduous, Leaf } from 'lucide-react'
 import ContactForm from '../components/ContactForm'
 import neighborhoodData from '../data/neighborhoodData.json'
 
@@ -67,7 +67,6 @@ export default function LocationTemplate() {
       <Head prioritizeSeoTags>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`https://omahatreecare.com/locations/${city}/${neighborhood}`} />
       </Head>
 

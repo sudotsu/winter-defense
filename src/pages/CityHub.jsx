@@ -1,7 +1,7 @@
+import { ArrowLeft, MapPin, TreeDeciduous } from 'lucide-react'
 import { useEffect } from 'react'
-import { useParams, Link } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { Head } from 'vite-react-ssg'
-import { MapPin, ArrowLeft, TreeDeciduous } from 'lucide-react'
 import locationsData from '../data/locations.json'
 
 /**
@@ -43,7 +43,6 @@ export default function CityHub() {
       <Head prioritizeSeoTags>
         <title>{pageTitle}</title>
         <meta name="description" content={metaDescription} />
-        <meta name="robots" content="noindex, nofollow" />
         <link rel="canonical" href={`https://omahatreecare.com/locations/${city}`} />
       </Head>
 

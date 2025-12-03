@@ -1,6 +1,3 @@
 User-agent: *
 Allow: /
-Disallow: /locations/
-
-# Location pages temporarily blocked until unique content is added
-# Remove these Disallow rules once neighborhood-specific content is implemented
+Sitemap: https://omahatreecare.com/sitemap.xml
