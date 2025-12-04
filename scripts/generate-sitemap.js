@@ -6,8 +6,8 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// This points to src/data/locations.json assuming this script is in /scripts folder
 const LOCATIONS_DATA_PATH = path.join(__dirname, '../src/data/locations.json');
+const SERVICES_DATA_PATH = path.join(__dirname, '../src/data/services.json'); // <--- NEW: Services Path
 const PUBLIC_SITEMAP_PATH = path.join(__dirname, '../public/sitemap.xml');
 const BASE_URL = 'https://omahatreecare.com';
 
@@ -15,8 +15,8 @@ console.log('📖 Reading location data from:', LOCATIONS_DATA_PATH);
 
 try {
   // 2. Read the Data
-  const rawData = fs.readFileSync(LOCATIONS_DATA_PATH, 'utf-8');
-  const locationsData = JSON.parse(rawData);
+  const locationsData = JSON.parse(fs.readFileSync(LOCATIONS_DATA_PATH, 'utf-8'));
+  const servicesData = JSON.parse(fs.readFileSync(SERVICES_DATA_PATH, 'utf-8')); // <--- NEW: Read services data
 
   // 3. Define Static Pages (The main menu items)
   const staticPages = [
@@ -43,13 +43,11 @@ try {
   };
 
   // 5. Add Static Pages
-  console.log('⚙️  Processing static pages...');
   staticPages.forEach(page => addUrl(page, '1.0'));
 
-  // 6. Add Dynamic Location Pages
+  // 6. Add Location Pages
   console.log('🌍 Processing location pages...');
   let locationCount = 0;
-
   Object.keys(locationsData).forEach(city => {
     // Add City Hub (e.g., /locations/omaha)
     addUrl(`/locations/${city}`, '0.9');
@@ -63,15 +61,28 @@ try {
     });
   });
 
-  // 7. Close and Write File
+  // 7. NEW: Add Service Pages
+  console.log('🎯 Processing service pages...');
+  let serviceCount = 0;
+  Object.keys(servicesData).forEach(serviceId => {
+    // Path structure matches the new route: /services/tree-removal
+    addUrl(`/services/${serviceId}`, '0.9', 'monthly');
+    serviceCount++;
+  });
+
+
+  // 8. Close and Write File
   xml += `
 </urlset>`;
 
   fs.writeFileSync(PUBLIC_SITEMAP_PATH, xml);
-  console.log(`\n✅ Success! Generated sitemap with ${staticPages.length + locationCount} URLs.`);
+  const totalPages = staticPages.length + locationCount + serviceCount;
+  console.log(`\n✅ Success! Generated sitemap with ${totalPages} URLs.`);
   console.log(`📍 Saved to: ${PUBLIC_SITEMAP_PATH}`);
 
 } catch (error) {
   console.error('\n❌ Error generating sitemap:', error.message);
-  console.error('Check that src/data/locations.json exists and is valid JSON.');
+  console.error('Check that src/data/locations.json and src/data/services.json exist and are valid JSON.');
 }
+
+// Final action items remain the same: run the script, commit the changes, and push.
